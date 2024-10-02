@@ -1,4 +1,5 @@
-import 'package:af_exam/database/helper/db_helper.dart';
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreDbHelper {
@@ -8,10 +9,16 @@ class FirestoreDbHelper {
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   addDataInFirestore({required List contacts}) async {
-    List allContacts = contacts
-        .map((e) => DbHelper.dbHelper.fetchSpecificData(id: e))
-        .toList();
+    // List allContacts = [];
 
-    allContacts.map((e) => db.collection("Contacts").doc().set(e));
+    await db.collection("Contacts").doc().set({"details": contacts});
+
+    // List.generate(
+    //   contacts.length,
+    //   (index) async {
+    //     await db.collection("Contacts").doc().set({"details": contacts[index]});
+    //     log(contacts[index].toString());
+    //   },
+    // );
   }
 }

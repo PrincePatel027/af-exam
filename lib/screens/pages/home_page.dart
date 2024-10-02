@@ -47,9 +47,6 @@ class _HomePageState extends State<HomePage> {
                   child: MaterialButton(
                     color: Colors.green,
                     onPressed: () async {
-                      // setState(() {
-                      //   isSelect = !isSelect;
-                      // });
                       await FirestoreDbHelper.firestoreDbHelper
                           .addDataInFirestore(
                         contacts: selectedContacts,

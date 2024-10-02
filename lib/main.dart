@@ -1,4 +1,5 @@
 import 'package:af_exam/firebase_options.dart';
+import 'package:af_exam/screens/pages/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../screens/pages/home_page.dart';
@@ -19,8 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: "splash",
       routes: {
         '/': (_) => const HomePage(),
+        'splash': (_) => const Splash(),
       },
     );
     // return GetMaterialApp(
